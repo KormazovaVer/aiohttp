@@ -11,7 +11,7 @@ COPY . /code
 
 RUN apk add --no-cache --virtual .build-deps g++ gcc make libc-dev libffi-dev libevent-dev musl-dev \
     openssl-dev \
-    && pip install --no-cache-dir -r /code/requirements.txt \
+    && pip install --no-cache-dir -r ./requirements.txt \
     && apk del .build-deps g++ gcc make libc-dev libffi-dev libevent-dev musl-dev openssl-dev
 
 ENTRYPOINT ./entrypoint.sh

@@ -1,11 +1,16 @@
 import asyncio
-
+import sys
 from client_request.api_models import AdvAPI
+
+
+if sys.version_info[0] == 3 and sys.version_info[1] >= 8 and sys.platform.startswith('win'):
+    policy = asyncio.WindowsSelectorEventLoopPolicy()
+    asyncio.set_event_loop_policy(policy)
 
 
 async def main():
     connection = AdvAPI()
-    # print(await connection.del_user(100))
+#    print(await connection.del_user(100))
     print(await connection.get_user(1))
     new_user = {
         'user_name': 'u1',
@@ -22,7 +27,7 @@ async def main():
         'user_password': 'p2',
         'user_email': 'u1@masd.su'
     }
-    # print(await connection.del_user(1))
+#    print(await connection.del_user(1))
 
     print(await connection.get_adv(1))
     new_adv = {
@@ -42,5 +47,13 @@ async def main():
 
 
 if __name__ == '__main__':
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(main())
+#   loop = asyncio.get_event_loop()
+#    loop.run_until_complete(main())
+    asyncio.run(main())
+
+
+
+
+
+
+

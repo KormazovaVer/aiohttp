@@ -59,3 +59,4 @@ class AdvView(TemplateView):
 class UserView(TemplateView):
     model_class = User
     class_valid = UserValidationModel
+

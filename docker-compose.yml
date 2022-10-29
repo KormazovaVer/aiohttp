@@ -11,11 +11,11 @@ services:
     image: postgres
     restart: always
     environment:
-      POSTGRES_USER: aiohttp
-      POSTGRES_PASSWORD: 1234
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 19021980Kv
       POSTGRES_DB: aiohttp
     ports:
-      - 5432:5432
+      - 5431:5433
     networks:
       net1:
         aliases:
@@ -25,10 +25,10 @@ services:
     build:
       context: .
       args:
-        DB: 'postgres://aiohttp:1234@database/aiohttp'
+        DB: 'postgres://postgres:19021980Kv@database/aiohttp'
       dockerfile: Dockerfile
     ports:
-      - "8080:8080"
+      - "8085:8080"
     container_name: app
 
     depends_on:
